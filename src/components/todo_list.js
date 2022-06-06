@@ -1,7 +1,9 @@
-import ToDoItem from "./todo_item";
+import ToDoItem from './todo_item';
 
 const ToDoList = (props) => {
-  const { todos, handleChangeProps, deleteToDoProps } = props;
+  const {
+    todos, handleChangeProps, deleteToDoProps, setUpdateProps,
+  } = props;
   return (
     <ul>
       {todos.map((todo) => (
@@ -10,6 +12,7 @@ const ToDoList = (props) => {
           todo={todo}
           handleChangeProps={handleChangeProps}
           deleteToDoProps={deleteToDoProps}
+          setUpdateProps={setUpdateProps}
         />
       ))}
     </ul>
