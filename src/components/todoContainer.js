@@ -59,7 +59,8 @@ class TodoContainer extends React.Component {
   render() {
     const { todos } = this.state;
     return (
-      <>
+      <div className="container">
+      <div className="inner">
         <Header />
         <InputTodo addToDoProps={this.addTodoItem}/>
         <ToDoList
@@ -67,7 +68,8 @@ class TodoContainer extends React.Component {
           handleChangeProps={this.handleChange}
           deleteToDoProps={this.deleteToDo}
         />
-      </>
+      </div>
+      </div>
     );
   }
 }

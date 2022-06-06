@@ -1,13 +1,26 @@
 
+
+import styles from "./TodoItem.module.css"
+
 const ToDoItem = props => {
   const {todo, handleChangeProps, deleteToDoProps} = props;
-  return (<li> 
+  const {completed,id,title} = todo;
+  const completedStyle = {
+    fontStyle: "italic",
+    color: "#595959",
+    opacity: 0.4,
+    textDecoration: "line-through",
+  }
+  return (<li className={styles.item}> 
     
-    <input type="checkbox" checked={todo.completed} onChange={() => handleChangeProps(todo.id)} />
+    <input
+    className={styles.checkbox}
+    type="checkbox" checked={completed} onChange={() => handleChangeProps(id)} />
     
 
-    {todo.title}
-    <button onClick={() => deleteToDoProps(todo.id)}>Delete</button>
+    <span style={completed ? completedStyle : null}>
+      {title}
+    </span>    <button onClick={() => deleteToDoProps(id)}>Delete</button>
 
     </li>)
 }
