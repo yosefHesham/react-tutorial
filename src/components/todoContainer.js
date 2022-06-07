@@ -1,18 +1,16 @@
-import React from "react";
-import { v4 as uuidv4 } from "uuid";
-import Header from "./header";
-import ToDoList from "./todo_list";
-import InputTodo from "./input_todo";
-import { Route, Switch } from "react-router-dom"
-
-
+import React from 'react';
+import { v4 as uuidv4 } from 'uuid';
+import { Route, Switch } from 'react-router-dom';
+import Header from './header';
+import ToDoList from './todo_list';
+import InputTodo from './input_todo';
 
 const TodoContainer = () => {
   function getInitialTodos() {
     // getting stored items
-    const temp = localStorage.getItem("todos")
-    const savedTodos = JSON.parse(temp)
-    return savedTodos || []
+    const temp = localStorage.getItem('todos');
+    const savedTodos = JSON.parse(temp);
+    return savedTodos || [];
   }
   const [todos, setToDos] = React.useState(getInitialTodos);
   const handleChange = (id) => {
@@ -39,7 +37,7 @@ const TodoContainer = () => {
       title,
       completed: false,
     };
-    setToDos(prev =>  [...prev, newTodo]);
+    setToDos((prev) => [...prev, newTodo]);
   };
 
   const setUpdate = (updatedTitle, id) => {
@@ -52,28 +50,26 @@ const TodoContainer = () => {
           };
         }
         return todo;
-      })
+      }),
     );
   };
-  
-const fetchToDos = () =>  {
-  console.log("Run for the first time")
-  if(!localStorage.getItem("todos") || JSON.parse(localStorage.getItem("todos")).length === 0 ) {
-    console.log("WTF")
-  fetch("https://jsonplaceholder.typicode.com/todos?_limit=10")
-    .then(response => response.json())
-    .then(data => setToDos(data));
-  }
-}
 
-const saveToDos = () => {
+  const fetchToDos = () => {
+    console.log('Run for the first time');
+    if (!localStorage.getItem('todos') || JSON.parse(localStorage.getItem('todos')).length === 0) {
+      console.log('WTF');
+      fetch('https://jsonplaceholder.typicode.com/todos?_limit=10')
+        .then((response) => response.json())
+        .then((data) => setToDos(data));
+    }
+  };
 
-    const temp = JSON.stringify(todos)
-    localStorage.setItem("todos", temp)
-  
-}
-React.useEffect(fetchToDos, [])
-  React.useEffect(saveToDos, [todos])
+  const saveToDos = () => {
+    const temp = JSON.stringify(todos);
+    localStorage.setItem('todos', temp);
+  };
+  React.useEffect(fetchToDos, []);
+  React.useEffect(saveToDos, [todos]);
   return (
     <div className="container">
       <div className="inner">

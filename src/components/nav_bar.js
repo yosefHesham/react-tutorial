@@ -1,30 +1,27 @@
-import React from "react";
-import { Link, NavLink } from "react-router-dom";
-
+import React from 'react';
+import { Link, NavLink } from 'react-router-dom';
 
 const Navbar = () => {
   const links = [
     {
       id: 1,
-      path: "/",
-      text: "Home",
+      path: '/',
+      text: 'Home',
     },
     {
       id: 2,
-      path: "/about",
-      text: "About",
+      path: '/about',
+      text: 'About',
     },
   ];
   return (
     <nav className="navBar">
       <ul>
-      {links.map(link => {
-        return (
+        {links.map((link) => (
           <li key={link.id}>
-          <Link to={link.path} >{link.text}</Link> 
-        </li>
-        )
-      })}
+            <Link to={link.path}>{link.text}</Link>
+          </li>
+        ))}
       </ul>
     </nav>
   );

@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import './App.css';
 
 import reportWebVitals from './reportWebVitals';
@@ -10,7 +9,7 @@ import RouterHandler from './components/router_handler';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterHandler/>
+    <RouterHandler />
   </React.StrictMode>,
 );
 

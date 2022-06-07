@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import ToDoItem from './todo_item';
 
 const ToDoList = (props) => {
@@ -17,6 +18,13 @@ const ToDoList = (props) => {
       ))}
     </ul>
   );
+};
+
+ToDoList.propTypes = {
+  deleteToDoProps: PropTypes.func.isRequired,
+  handleChangeProps: PropTypes.func.isRequired,
+  setUpdateProps: PropTypes.func.isRequired,
+  todos: PropTypes.instanceOf(Array).isRequired,
 };
 
 export default ToDoList;
