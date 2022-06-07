@@ -1,6 +1,5 @@
 import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { Route, Switch } from 'react-router-dom';
 import Header from './header';
 import ToDoList from './todo_list';
 import InputTodo from './input_todo';
@@ -55,9 +54,7 @@ const TodoContainer = () => {
   };
 
   const fetchToDos = () => {
-    console.log('Run for the first time');
     if (!localStorage.getItem('todos') || JSON.parse(localStorage.getItem('todos')).length === 0) {
-      console.log('WTF');
       fetch('https://jsonplaceholder.typicode.com/todos?_limit=10')
         .then((response) => response.json())
         .then((data) => setToDos(data));
