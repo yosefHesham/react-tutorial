@@ -16,8 +16,7 @@ const RouterHandler = () => {
       <Route  path="/" element={<TodoContainer />}/>
         <Route path="/about" element={<About/>} />
         <Route path="*" element={<NotMatch />}>
-        
-       
+
       </Route>
     </Routes>
     </BrowserRouter>
