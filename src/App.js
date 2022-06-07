@@ -1,10 +1,11 @@
 import React from 'react';
 
 import './App.css';
+import TodoContainer from './components/todoContainer';
 
 const App = () => (
   <main>
-    <p> Hello React</p>
+    <TodoContainer />
   </main>
 );
 
